@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="net.canway.cw">
+
+    <application
+        android:name=".app.AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".login.controller.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".login.controller.activity.LoginActivity"/>
+        <activity android:name=".login.controller.activity.RegisterActivity"/>
+        <activity android:name=".login.controller.activity.MainActivity"/>
+        <activity android:name=".news.controller.activity.WebViewActivity"/>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>

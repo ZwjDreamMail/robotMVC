@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <!--
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <WebView
+                    android:id="@+id/web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </WebView>
+            </ScrollView>-->
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </WebView>
+
+    <RelativeLayout
+        android:id="@+id/head_rl"
+        android:layout_width="match_parent"
+        android:layout_height="210dp">
+
+        <ImageView
+            android:id="@+id/web_iv"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/web_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/news_text_size"
+            />
+    </RelativeLayout>
+</RelativeLayout>
+
+

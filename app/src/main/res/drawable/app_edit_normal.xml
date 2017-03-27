@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+    <item
+        >
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/edit_bac_focus"
+                android:dashGap="0dp"
+                android:dashWidth="0dp" />
+            <solid android:color="@color/edit_bac_normal"/>
+            <corners android:radius="6dp"/>
+        </shape>
+    </item>
+</layer-list>

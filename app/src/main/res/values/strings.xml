@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">嘉为MVC</string>
+    <string name="login">login</string>
+    <string name="register">register</string>
+
+    <string-array name="tabhost_title">
+        <item>新闻</item>
+        <item>专题</item>
+        <item>视频</item>
+    </string-array>
+    <string-array name="smart_title">
+        <item>视频列表</item>
+        <item>大纲</item>
+        <item>评论</item>
+        <item>互动</item>
+        <item>社区</item>
+        <item>直播</item>
+    </string-array>
+</resources>
