@@ -7,11 +7,11 @@
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <WebView
+                <WebViewDisplay
                     android:id="@+id/web"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                </WebView>
+                </WebViewDisplay>
             </ScrollView>-->
     <WebView
         android:id="@+id/web"

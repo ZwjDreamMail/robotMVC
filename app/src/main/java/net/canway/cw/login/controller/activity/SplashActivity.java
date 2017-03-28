@@ -7,8 +7,8 @@ import net.canway.cw.R;
 import net.canway.cw.common.base.BaseActivity;
 import net.canway.cw.common.util.IntentUtils;
 import net.canway.cw.common.util.ToastUtils;
-import net.canway.cw.login.view.CicleLodingImageVIew;
-import net.canway.cw.login.view.IloadingClick;
+import net.canway.cw.login.view.custom.CicleLodingImageVIew;
+import net.canway.cw.login.view.custom.IloadingClick;
 
 
 /**

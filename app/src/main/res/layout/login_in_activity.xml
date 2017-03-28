@@ -10,12 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <net.canway.cw.login.view.MySurfaceView
+        <net.canway.cw.login.view.custom.MySurfaceView
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
-    <net.canway.cw.login.view.CicleLodingImageVIew
+    <net.canway.cw.login.view.custom.CicleLodingImageVIew
         android:id="@+id/loading_view"
         android:layout_width="160dp"
         android:layout_height="160dp"

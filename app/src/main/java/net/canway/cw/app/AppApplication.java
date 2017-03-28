@@ -26,6 +26,7 @@ public class AppApplication extends Application {
 
     @Override
     public void onCreate() {
+
         //上下文路径
         mContext = getApplicationContext();
         //全局handler
