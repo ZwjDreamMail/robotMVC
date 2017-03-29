@@ -25,10 +25,10 @@ import java.io.IOException;
 public class WebViewActivity extends SuperBaseActivity {
 
 
-
     private WebViewDataRequest mDataRequest;
     private CssNetRequest mCssNetRequest;
     private String mCss;
+    private String mHtml;
 
     private HtmlBeanInfo mHtmlBeanInfo;
 
@@ -58,8 +58,7 @@ public class WebViewActivity extends SuperBaseActivity {
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected View initSuccessView() {
-
-        return new WebViewDisplay().getWebViewByData(this,mCss,mHtmlBeanInfo);
+        return  new WebViewDisplay().getWebViewByData(this,mCss,mHtmlBeanInfo);
     }
 
 }

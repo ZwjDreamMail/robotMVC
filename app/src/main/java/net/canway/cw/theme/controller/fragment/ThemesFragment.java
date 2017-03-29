@@ -49,5 +49,4 @@ public class ThemesFragment extends BaseFragment {
         return new ThemeFragmentDisplay().getViewByData(mOthers);
     }
 
-
 }

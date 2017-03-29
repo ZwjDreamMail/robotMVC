@@ -44,7 +44,6 @@ public abstract  class BaseNetRequest<T>  {
                 return (T) result;
             }
 
-
         }
         return null;
     }

@@ -1,8 +1,8 @@
 package net.canway.cw.news.view.displayview;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import net.canway.cw.R;
 import net.canway.cw.common.util.UIUtils;
+import net.canway.cw.news.controller.activity.WebViewActivity;
 import net.canway.cw.news.model.bean.HtmlBeanInfo;
 
 import butterknife.ButterKnife;
@@ -37,13 +38,16 @@ public class WebViewDisplay {
     private String mHtml;
 
     @TargetApi(Build.VERSION_CODES.M)
-    public  View getWebViewByData(Activity activity,String css, HtmlBeanInfo htmlBeanInfo) {
-
+    public View getWebViewByData(WebViewActivity activity, String css, HtmlBeanInfo htmlBeanInfo) {
         View view = View.inflate(UIUtils.getContext(), R.layout.news_webview_fragment, null);
-        ButterKnife.inject(activity, view);
+        ButterKnife.inject(this,view);
+
+        Log.e("canway", htmlBeanInfo.getImage());
+        Log.e("canway", mWebIv + "");
 
         Picasso.with(UIUtils.getContext()).load(htmlBeanInfo.getImage()).into(mWebIv);
         mWebTv.setText(htmlBeanInfo.getTitle());
+
         //打开支持js的开关
         mWeb.getSettings().setJavaScriptEnabled(true);
         mWeb.setWebViewClient(new WebViewClient() {
