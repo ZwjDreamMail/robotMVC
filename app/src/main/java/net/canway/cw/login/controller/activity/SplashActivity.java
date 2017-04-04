@@ -1,14 +1,15 @@
 package net.canway.cw.login.controller.activity;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 
 import net.canway.cw.R;
 import net.canway.cw.common.base.BaseActivity;
-import net.canway.cw.common.util.IntentUtils;
-import net.canway.cw.common.util.ToastUtils;
-import net.canway.cw.login.view.custom.CicleLodingImageVIew;
-import net.canway.cw.login.view.custom.IloadingClick;
+import net.canway.cw.login.view.custom.SplashCustomView;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
 /**
@@ -18,31 +19,36 @@ import net.canway.cw.login.view.custom.IloadingClick;
  */
 public class SplashActivity extends BaseActivity {
 
-    CicleLodingImageVIew loadingview;
-    int degree = 0;
-
-    Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            degree += 30;
-            //设置对应的一个度数给自定义控件
-            loadingview.setCurrentDegree(degree);
-            if (degree >= 360) {
-                IntentUtils.statrtIntentAndFinish(SplashActivity.this, LoginActivity.class);
-                mHandler.removeCallbacks(resh);
-            }
-        }
-    };
+    @InjectView(R.id.splash_custom_news)
+    SplashCustomView mSplashCustomNews;
+    @InjectView(R.id.splash_custom_friend)
+    SplashCustomView mSplashCustomFriend;
+    @InjectView(R.id.splash_custom_video)
+    SplashCustomView mSplashCustomVideo;
+    @InjectView(R.id.splash_experience)
+    Button mSplashExperience;
+    @InjectView(R.id.splash_login)
+    Button mSplashLogin;
 
     @Override
     protected void initClickListener() {
-        loadingview.setClick(new IloadingClick() {
+        // 立即体验,进入到主界面
+        mSplashExperience.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(CicleLodingImageVIew lodingImageVIew) {
-                ToastUtils.showTaost(SplashActivity.this, "点击事件");
-                IntentUtils.statrtIntentAndFinish(SplashActivity.this, LoginActivity.class);
-                mHandler.removeCallbacks(resh);
+            public void onClick(View view) {
+                Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
+        // 进入到登录界面进行登录操作
+        mSplashLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -50,25 +56,13 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void initView() {
         setContentView(R.layout.login_in_activity);
-        loadingview = (CicleLodingImageVIew) findViewById(R.id.loading_view);
-        mHandler.post(resh);
-
+        ButterKnife.inject(this);
     }
-
 
     @Override
     protected void releaceSource() {
 
     }
-
-    Runnable resh = new Runnable() {
-        @Override
-        public void run() {
-            mHandler.sendEmptyMessage(0);
-            //延迟1秒
-            mHandler.postDelayed(resh, 1000);
-        }
-    };
 
 }
 

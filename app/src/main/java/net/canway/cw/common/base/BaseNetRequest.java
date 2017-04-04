@@ -1,5 +1,7 @@
 package net.canway.cw.common.base;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -37,6 +39,9 @@ public abstract  class BaseNetRequest<T>  {
         //通过respose来判断数据请求的状态
         if(response.isSuccessful()) {
             String result = response.body().string();
+
+            Log.e("canway---",result);
+
             if(parse) {
                 T t = parseResult(result);
                 return t;

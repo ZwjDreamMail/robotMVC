@@ -1,23 +1,21 @@
 package net.canway.cw.video.view.displayview;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import net.canway.cw.R;
 import net.canway.cw.common.util.UIUtils;
-import net.canway.cw.video.controller.fragment.VidioFragment;
-import net.canway.cw.video.model.FragmentInfo;
-import net.canway.cw.video.view.adapter.VedioPagerAdapter;
+import net.canway.cw.video.model.bean.VideoBeanInfo;
+import net.canway.cw.video.view.adapter.VideoAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
  * @author 张文建 king
@@ -25,32 +23,36 @@ import butterknife.InjectView;
  * @desc ${TODD}
  */
 public class MediaFragmentDisplay {
-    @InjectView(R.id.videocontroller1)
-    fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard mVideocontroller1;
-    @InjectView(R.id.viewpagerTab)
-    SmartTabLayout mViewpagerTab;
-    @InjectView(R.id.viewPager)
-    ViewPager mViewPager;
-    private String[] mTitles;
-    private List<FragmentInfo> mfragmentInfo;
 
 
-    public View getViewByData(Activity activity, FragmentManager manager) {
+    @InjectView(R.id.videocontroller)
+    JCVideoPlayerStandard mVideocontroller;
+    @InjectView(R.id.video_lv)
+    ListView mVideoLv;
+    private List<VideoBeanInfo.V9lg4b3a0> mV9lg4b3a0;
+
+    public View getViewByData(Context context, FragmentManager manager, final VideoBeanInfo videoBeanInfo) {
         View view = View.inflate(UIUtils.getContext(), R.layout.vedio_fragment, null);
         ButterKnife.inject(this, view);
-        mfragmentInfo = new ArrayList<>();
-        mVideocontroller1.setUp("http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4",
-                "Android开发",
+        // 获取对应的视频数据
+        mV9lg4b3a0 = videoBeanInfo.getV9lg4b3a0();
+        VideoAdapter adapter = new VideoAdapter(videoBeanInfo.getV9lg4b3a0());
+        mVideoLv.setAdapter(adapter);
+
+        mVideocontroller.setUp(mV9lg4b3a0.get(1).getMp4_url(),
+                mV9lg4b3a0.get(1).getTitle(),
                 "一行代码实现视频播放");
-        //获取titles
-        mTitles = activity.getResources().getStringArray(R.array.smart_title);
-        for (int i = 0; i <mTitles.length ; i++) {
-            FragmentInfo minfo = new FragmentInfo(mTitles[i],VidioFragment.class);
-            mfragmentInfo.add(minfo);
-        }
-        mViewPager.setAdapter(new VedioPagerAdapter(manager,mfragmentInfo));
-        //一定要给smartlayout设置对应视图
-        mViewpagerTab.setViewPager(mViewPager);
+        mVideoLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mVideocontroller.setUp(mV9lg4b3a0.get(i).getMp4_url(),
+                        mV9lg4b3a0.get(i).getTitle(),
+                        "一行代码实现视频播放");
+                // 设置点击直接播放视频
+                view.setId(R.id.start);
+                mVideocontroller.onClick(view);
+            }
+        });
         return view;
     }
 

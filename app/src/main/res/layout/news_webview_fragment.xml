@@ -2,22 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <!--
-            <ScrollView
-                android:id="@+id/scrollView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <WebViewDisplay
-                    android:id="@+id/web"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </WebViewDisplay>
-            </ScrollView>-->
-    <WebView
+
+    <net.canway.cw.news.view.custom.ScrollWebView
         android:id="@+id/web"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </WebView>
+    </net.canway.cw.news.view.custom.ScrollWebView>
 
     <RelativeLayout
         android:id="@+id/head_rl"

@@ -3,6 +3,7 @@ package net.canway.cw.app;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 
 /**
  * @author 张文建 king
@@ -33,6 +34,7 @@ public class AppApplication extends Application {
         mHandler = new Handler();
         //获取主线程id
         mMainThreadId = android.os.Process.myTid();
+
         super.onCreate();
     }
 }

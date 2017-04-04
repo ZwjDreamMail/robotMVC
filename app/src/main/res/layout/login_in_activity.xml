@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:canway="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,16 +10,68 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <net.canway.cw.login.view.custom.MySurfaceView
+        <net.canway.cw.login.view.custom.SparkSurfaceView
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
-    <net.canway.cw.login.view.custom.CicleLodingImageVIew
-        android:id="@+id/loading_view"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+    <net.canway.cw.login.view.custom.SplashCustomView
+        android:id="@+id/splash_custom_news"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        canway:relative="false"
+        canway:text="VideoPlayer"
+        canway:src="@drawable/spalsh_anim_news"
         />
+
+    <net.canway.cw.login.view.custom.SplashCustomView
+
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/splash_custom_news"
+        android:id="@+id/splash_custom_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        canway:text="VideoPlayer"
+        canway:relative="true"
+        />
+
+    <net.canway.cw.login.view.custom.SplashCustomView
+        android:layout_marginTop="20dp"
+        android:id="@+id/splash_custom_video"
+        android:layout_below="@id/splash_custom_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        canway:relative="false"
+        canway:text="VideoPlayer"
+        canway:src="@drawable/splash_anim_video"
+        />
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/splash_experience"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="立即体验"
+            android:layout_marginLeft="10dp"
+            />
+
+        <Button
+            android:id="@+id/splash_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="登录"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <net.canway.cw.login.view.custom.MySurfaceView
+        <net.canway.cw.login.view.custom.SparkSurfaceView
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

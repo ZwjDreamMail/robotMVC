@@ -7,8 +7,8 @@
     <color name="textColor_title">#40efff</color>
     <color name="button_text_press">#5f7071</color>
     <color name="button_text">#252626</color>
-    <color name="button_bac_press">#fffc40</color>
-    <color name="button_bac">#989d9e</color>
+    <color name="button_bac_press">#40efff</color>
+    <color name="button_bac">#ea3908</color>
 
     <color name="cardview_bac">#f2e5e8e9</color>
     <color name="theme_cardview_bac">#f2fafbfc</color>

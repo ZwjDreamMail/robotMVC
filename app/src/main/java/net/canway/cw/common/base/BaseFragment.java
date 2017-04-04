@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.lcodecore.tkrefreshlayout.header.progresslayout.ProgressLayout;
 
 import java.util.List;
 import java.util.Map;
@@ -42,14 +40,16 @@ public abstract  class BaseFragment extends Fragment {
                 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 protected View initSuccessView() {
-                    mRefreshLayout = new TwinklingRefreshLayout(getContext());
+                    removeAllViews();
+                    // mRefreshLayout = new TwinklingRefreshLayout(getContext());
                     mSuccessView = BaseFragment.this.initSuccessView();
-                    mRefreshLayout.addView(mSuccessView);
+                    /*mRefreshLayout.addView(mSuccessView);
                     ProgressLayout layout = new ProgressLayout(getContext());
                     mRefreshLayout.setHeaderHeight(180);
                     mRefreshLayout.setWaveHeight(140);
                     mRefreshLayout.setHeaderView(layout);
                     mRefreshLayout.setScrollBarFadeDuration(1000);
+
                     mRefreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
                         @Override
                         public void onFinishLoadMore() {
@@ -61,9 +61,9 @@ public abstract  class BaseFragment extends Fragment {
                             //进行网络数据的请求
                             mRefreshLayout.finishRefreshing();
                         }
-                    });
+                    });*/
 
-                    return mRefreshLayout;
+                    return mSuccessView;
                 }
 
                 @Override

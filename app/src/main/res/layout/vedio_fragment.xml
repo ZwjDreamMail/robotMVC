@@ -5,40 +5,82 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-        android:id="@+id/videocontroller1"
+        android:id="@+id/videocontroller"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         />
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/video_lv"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@android:color/white"
-        android:gravity="center_horizontal">
-
-        <com.ogaclejapan.smarttablayout.SmartTabLayout
-            android:id="@+id/viewpagerTab"
-            android:layout_width = "wrap_content"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/white"
-            app:stl_customTabTextLayoutId="@layout/include_title_tab"
-            app:stl_customTabTextViewId="@+id/hk_text"
-            app:stl_indicatorColor="@android:color/holo_red_light"
-            app:stl_indicatorGravity="bottom"
-            app:stl_indicatorInterpolation="linear"
-            app:stl_indicatorThickness="3dp"
-            app:stl_underlineColor="@android:color/white"
-            app:stl_underlineThickness="1dp"
-            />
-
-    </RelativeLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#ff0000"
+        android:dividerHeight="2dp"
         />
 
+   <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/video_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="白玉梁"
+                android:textColor="#444444"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/video_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="一分钟前"
+                android:textColor="#BEBBB4"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl1"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:id="@+id/video_topic"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                android:textColor="#615150"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl3"
+            android:paddingRight="25dp"
+            android:visibility="gone" >
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+-->
 </LinearLayout>

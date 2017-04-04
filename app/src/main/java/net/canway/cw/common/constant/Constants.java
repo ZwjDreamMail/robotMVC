@@ -12,4 +12,5 @@ public class Constants {
      */
     public static final boolean DEBUG = true;
     public static  final String BASE_URL = "http://news-at.zhihu.com/api/4";
+    public static  final String VIDEO_URL = "http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/10-10.html";
 }

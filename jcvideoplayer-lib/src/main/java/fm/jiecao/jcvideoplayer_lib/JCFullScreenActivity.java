@@ -26,6 +26,7 @@ public class JCFullScreenActivity extends Activity {
     VIDEO_PLAYER_CLASS = videoPlayClass;
     OBJECTS = obj;
     Intent intent = new Intent(context, JCFullScreenActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     context.startActivity(intent);
   }
 

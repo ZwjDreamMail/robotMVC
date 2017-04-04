@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="splash_custom">
+        <attr name="relative" format="boolean"/>
+        <attr name="src" format="reference"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="RatioLayout">
+        <attr name="relat" format="enum">
+            <enum name="width" value="0"></enum>
+            <enum name="height" value="1"></enum>
+        </attr>
+        <attr name="picRatio" format="float"></attr>
+    </declare-styleable>
+</resources>

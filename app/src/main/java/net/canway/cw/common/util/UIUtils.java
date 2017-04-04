@@ -2,6 +2,8 @@ package net.canway.cw.common.util;
 
 import android.content.Context;
 import android.os.Handler;
+import android.view.Display;
+import android.view.WindowManager;
 
 import net.canway.cw.app.AppApplication;
 
@@ -51,5 +53,26 @@ public class UIUtils {
         int dp = (int) (px / density + .5f);
         return dp;
     }
+
+    /**
+     * 获取屏幕高度
+     * @return
+     */
+    public static int getScreenHeight(){
+        WindowManager manager = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
+        Display display = manager.getDefaultDisplay();
+        return display.getHeight();
+    }
+
+    /**
+     * 获取屏幕的宽度
+     * @return
+     */
+    public static int getScreenWidth(){
+        WindowManager manager = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
+        Display display = manager.getDefaultDisplay();
+        return display.getWidth();
+    }
+
 
 }

@@ -7,5 +7,5 @@ package net.canway.cw.login.view.custom;
  * @desc ${TODD}
  */
 public interface IloadingClick {
-    public void onClick(CicleLodingImageVIew lodingImageVIew);
+    public void onClick(SplashCustomView lodingImageVIew);
 }

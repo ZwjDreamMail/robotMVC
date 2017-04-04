@@ -24,7 +24,7 @@
     <style name="ButtonTheme" parent="@android:style/Widget.Button">
         <item name="android:paddingLeft">@dimen/margin_middle</item>
         <item name="android:paddingRight">@dimen/margin_middle</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:padding">6dp</item>
         <item name="android:textColor">@color/text_light_selector</item>
         <item name="android:background">@drawable/app_bac_button_rectangle</item>

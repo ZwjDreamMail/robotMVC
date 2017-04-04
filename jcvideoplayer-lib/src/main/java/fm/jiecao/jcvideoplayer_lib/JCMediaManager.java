@@ -34,6 +34,7 @@ public class JCMediaManager implements MediaPlayer.OnPreparedListener, MediaPlay
   }
 
   public JCMediaManager() {
+    //mediaPlayer = MediaPlayer.create();
     mediaPlayer = new MediaPlayer();
   }
 

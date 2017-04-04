@@ -7,7 +7,7 @@ import android.widget.ListView;
 import net.canway.cw.common.factory.ListViewFactory;
 import net.canway.cw.common.util.UIUtils;
 import net.canway.cw.theme.Model.bean.ThemeBeanInfo;
-import net.canway.cw.theme.view.adapter.ThemesAdapter;
+import net.canway.cw.theme.controller.adapter.ThemesAdapter;
 
 import java.util.List;
 

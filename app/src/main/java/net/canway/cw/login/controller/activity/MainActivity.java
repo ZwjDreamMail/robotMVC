@@ -1,6 +1,7 @@
 package net.canway.cw.login.controller.activity;
 
 import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -47,6 +48,10 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.app_main_activity);
         mTabs = (FragmentTabHost) findViewById(R.id.tabs);
         mTabContent = (FrameLayout) findViewById(R.id.tabContent);
+
+        mTabs.setBackgroundColor(Color.parseColor("#01ff0000"));
+        // mTabs.getBackground().setAlpha(0);
+
         //获取标题
         titles = getResources().getStringArray(R.array.tabhost_title);
         //设置对应的fragment数组
@@ -66,5 +71,6 @@ public class MainActivity extends FragmentActivity {
             //将底部菜单栏和fragment进行一个绑定
             mTabs.addTab(host,f_class[i],null);
         }
+        mTabs.getTabWidget().setBackgroundColor(Color.TRANSPARENT);
     }
 }

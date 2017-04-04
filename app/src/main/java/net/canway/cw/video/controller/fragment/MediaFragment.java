@@ -5,7 +5,11 @@ import android.view.View;
 
 import net.canway.cw.common.base.BaseFragment;
 import net.canway.cw.common.base.BaseUiDisplay;
+import net.canway.cw.video.model.bean.VideoBeanInfo;
+import net.canway.cw.video.model.network.VideoRequest;
 import net.canway.cw.video.view.displayview.MediaFragmentDisplay;
+
+import java.io.IOException;
 
 import butterknife.ButterKnife;
 /**
@@ -19,6 +23,9 @@ import butterknife.ButterKnife;
         "一行代码实现视频播放");*/
 
 public class MediaFragment extends BaseFragment {
+
+    private VideoRequest mVideoRequest;
+    private VideoBeanInfo mVideoBeanInfo;
 
     @Override
     public void onPause() {
@@ -35,13 +42,24 @@ public class MediaFragment extends BaseFragment {
 
     @Override
     protected BaseUiDisplay.LoadingDataState initData() {
-        return BaseUiDisplay.LoadingDataState.SUCCESS;
+        mVideoRequest = new VideoRequest();
+        try {
+            mVideoBeanInfo = mVideoRequest.loadData(true);
+            BaseUiDisplay.LoadingDataState state = checkData(mVideoBeanInfo);
+            if (state != BaseUiDisplay.LoadingDataState.SUCCESS) {
+                return state;
+            }
+            return state;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return BaseUiDisplay.LoadingDataState.ERROR;
+        }
+
     }
 
     @Override
     protected View initSuccessView() {
-        return new MediaFragmentDisplay().getViewByData(getActivity(),getFragmentManager());
+        return new MediaFragmentDisplay().getViewByData(getContext(),getFragmentManager(),mVideoBeanInfo);
     }
-
 
 }

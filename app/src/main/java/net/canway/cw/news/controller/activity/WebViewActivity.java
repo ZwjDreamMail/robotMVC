@@ -58,7 +58,7 @@ public class WebViewActivity extends SuperBaseActivity {
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected View initSuccessView() {
-        return  new WebViewDisplay().getWebViewByData(this,mCss,mHtmlBeanInfo);
+        return  new WebViewDisplay().getWebViewByData(mCss,mHtmlBeanInfo);
     }
 
 }

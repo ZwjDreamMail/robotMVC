@@ -24,7 +24,7 @@ import net.canway.cw.common.manager.SparkManager;
  * @email 529169501@qq.com
  * @desc ${TODD}
  */
-public class MySurfaceView extends SurfaceView implements
+public class SparkSurfaceView extends SurfaceView implements
         SurfaceHolder.Callback, Runnable {
     //上下文路径
     private Context mContext;
@@ -62,7 +62,7 @@ public class MySurfaceView extends SurfaceView implements
         return true;
     }
 
-    public MySurfaceView(Context context) {
+    public SparkSurfaceView(Context context) {
         super(context);
         mContext = context;
         mSparkManager = new SparkManager();
@@ -71,7 +71,7 @@ public class MySurfaceView extends SurfaceView implements
         isRun = true;
     }
 
-    public MySurfaceView(Context context, AttributeSet attrs) {
+    public SparkSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         mSparkManager = new SparkManager();

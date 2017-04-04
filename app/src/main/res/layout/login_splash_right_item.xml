@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:id="@+id/splash_linear"
+              android:layout_height="116dp">
+
+    <ImageView
+        android:id="@+id/splash_anim_icon"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        android:padding="10dp"
+        android:src="@drawable/splash_anim_video"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+        android:paddingLeft="20dp"
+        android:id="@+id/splash_anim_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="30sp"
+        android:textColor="#ffff00"
+        android:text="Music"
+        />
+
+</LinearLayout>
