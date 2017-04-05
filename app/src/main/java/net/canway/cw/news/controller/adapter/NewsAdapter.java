@@ -1,4 +1,4 @@
-package net.canway.cw.news.view.adapter;
+package net.canway.cw.news.controller.adapter;
 
 
 import android.view.View;

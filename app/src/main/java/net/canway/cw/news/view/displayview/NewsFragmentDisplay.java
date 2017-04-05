@@ -12,7 +12,7 @@ import net.canway.cw.common.util.SharePreferenceUtil;
 import net.canway.cw.common.util.UIUtils;
 import net.canway.cw.news.controller.activity.WebViewActivity;
 import net.canway.cw.news.model.bean.NewsBeanInfo;
-import net.canway.cw.news.view.adapter.NewsAdapter;
+import net.canway.cw.news.controller.adapter.NewsAdapter;
 import net.canway.cw.news.view.holder.NewsHeadHolder;
 
 import java.util.List;

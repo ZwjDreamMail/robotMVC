@@ -19,12 +19,15 @@
 
         <activity android:name=".login.controller.activity.LoginActivity"/>
         <activity android:name=".login.controller.activity.RegisterActivity"/>
-        <activity android:name=".login.controller.activity.MainActivity"/>
+        <activity
+            android:name=".login.controller.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            />
         <activity android:name=".news.controller.activity.WebViewActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 </manifest>

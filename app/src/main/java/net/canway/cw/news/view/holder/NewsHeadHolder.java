@@ -11,7 +11,7 @@ import net.canway.cw.R;
 import net.canway.cw.common.base.BaseHolder;
 import net.canway.cw.common.util.UIUtils;
 import net.canway.cw.news.model.bean.NewsBeanInfo;
-import net.canway.cw.news.view.adapter.NewsHeadAdapter;
+import net.canway.cw.news.controller.adapter.NewsHeadAdapter;
 
 import java.util.List;
 

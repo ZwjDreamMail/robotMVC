@@ -71,6 +71,7 @@ public class MainActivity extends FragmentActivity {
             //将底部菜单栏和fragment进行一个绑定
             mTabs.addTab(host,f_class[i],null);
         }
+
         mTabs.getTabWidget().setBackgroundColor(Color.TRANSPARENT);
     }
 }

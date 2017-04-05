@@ -6,13 +6,10 @@ import android.widget.EditText;
 
 import net.canway.cw.R;
 import net.canway.cw.common.base.BaseActivity;
+import net.canway.cw.common.constant.Constants;
 import net.canway.cw.common.util.IntentUtils;
-import net.canway.cw.common.util.Md5Utils;
 import net.canway.cw.common.util.ToastUtils;
-import net.canway.cw.datastore.dao.UserDao;
-import net.canway.cw.login.model.User;
-
-import java.util.List;
+import net.canway.cw.login.model.LoginEntity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -48,27 +45,22 @@ public class LoginActivity extends BaseActivity {
 
                 String username = mUser.getText().toString();
                 String pwd = mPassword.getText().toString();
-
-                //进行一个非空判断
-                if("".equals(username)||"".equals(pwd)) {
-                    ToastUtils.showTaost(LoginActivity.this,"用户名或者密码为空");
-                    return;
-                }
-                //判断用户是否已经注册
-                UserDao dao = new UserDao();
-                List<User> users = dao.queryByName(username);
-                if(users.size()<=0) {
-                    ToastUtils.showTaost(LoginActivity.this,"用户没有注册");
-                    return;
-                }
-
-                String pwd1 = users.get(0).getPwd();
-                String cpwd = Md5Utils.getMd5(pwd);
-                
-                if(cpwd.equals(pwd1)) {
-                    IntentUtils.statrtIntentAndFinish(LoginActivity.this,MainActivity.class);
-                }else{
-                    ToastUtils.showTaost(LoginActivity.this,"输入密码不正确");
+                // 将逻辑处理和数据存储交给model层去处理
+                LoginEntity loginEntity = new LoginEntity(0,username,pwd);
+                int loginstate = loginEntity.login();
+                switch (loginstate) {
+                    case  Constants.LOGING_INPUT_EMPTY:
+                        ToastUtils.showTaost(LoginActivity.this,"用户名或者密码为空");
+                        break;
+                    case  Constants.LOGING_INPUT_ERROR:
+                        ToastUtils.showTaost(LoginActivity.this,"输入密码不正确");
+                        break;
+                    case  Constants.LOGING_NOREGISTER:
+                        ToastUtils.showTaost(LoginActivity.this,"用户没有注册");
+                        break;
+                    case  Constants.LOGING_SUCCESS:
+                        IntentUtils.statrtIntentAndFinish(LoginActivity.this,MainActivity.class);
+                        break;
                 }
             }
         });

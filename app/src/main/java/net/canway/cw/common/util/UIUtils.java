@@ -22,6 +22,10 @@ public class UIUtils {
         return AppApplication.getmHandler();
     }
 
+    /**
+     * 安全的执行一个任务的方法
+     * @param task  任务
+     */
     public static  void postTaskSafey(Runnable task){
         long currentThreadId = android.os.Process.myTid();
         long mainThreadId = AppApplication.getMainThread();

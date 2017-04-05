@@ -63,7 +63,6 @@ public abstract class BaseUiDisplay<T> extends FrameLayout {
     public void triggeLoadingData() {
         //进行数据的加载
 
-
         if (mCurrentState != LOAING_SUCCESS && mTask == null) {
             mCurrentState = LOAING;
             refreshByState();
@@ -99,6 +98,7 @@ public abstract class BaseUiDisplay<T> extends FrameLayout {
         mErrorView.setVisibility((mCurrentState == LOAING_ERROR) ? VISIBLE : INVISIBLE);
         //加载数据为空的时候显示空视图
         mEmptyView.setVisibility((mCurrentState == LOAING_EMPTY) ? VISIBLE : INVISIBLE);
+
         if (mCurrentState == LOAING_SUCCESS && mSuccessView == null) {
             mSuccessView = initSuccessView();
             this.addView(mSuccessView);

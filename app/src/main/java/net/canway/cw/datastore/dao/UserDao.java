@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import net.canway.cw.common.util.UIUtils;
 import net.canway.cw.datastore.db.UserDataHelper;
-import net.canway.cw.login.model.User;
+import net.canway.cw.login.model.LoginEntity;
+import net.canway.cw.login.model.RegisterEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  * @email 529169501@qq.com
  * @desc ${TODD}
  */
-public class UserDao {
+public class UserDao{
     private UserDataHelper mHelper;
     private  static  final String TABLE_NAME = "user";
     public UserDao(){
@@ -43,8 +44,8 @@ public class UserDao {
         return false;
     }
 
-    public List<User> queryByName(String username){
-        List<User> mUsers = new ArrayList<>();
+    public List<LoginEntity> queryByName(String username){
+        List<LoginEntity> mLoginEntities = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{"_id","username", "pwd"}, "username=?",
                 new String[]{username}, null, null, null);
@@ -52,14 +53,32 @@ public class UserDao {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
             String pwd = cursor.getString(2);
-            User user = new User();
-            user.setId(id);
-            user.setUsername(name);
-            user.setPwd(pwd);
-            mUsers.add(user);
+            LoginEntity loginEntity = new LoginEntity();
+            loginEntity.setUsername(name);
+            loginEntity.setPwd(pwd);
+            mLoginEntities.add(loginEntity);
         }
         db.close();
         cursor.close();
-        return mUsers;
+        return mLoginEntities;
+    }
+
+    public List<RegisterEntity> queryRegister(String username){
+        List<RegisterEntity> mRegisterEntities = new ArrayList<>();
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"_id","username", "pwd"}, "username=?",
+                new String[]{username}, null, null, null);
+        while(cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String pwd = cursor.getString(2);
+            RegisterEntity registerEntity = new RegisterEntity();
+            registerEntity.setUsername(name);
+            registerEntity.setPwd(pwd);
+            mRegisterEntities.add(registerEntity);
+        }
+        db.close();
+        cursor.close();
+        return mRegisterEntities;
     }
 }
